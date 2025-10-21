@@ -1,0 +1,13 @@
+# Configuración de Netlify para FactuBot Landing
+
+[build]
+  publish = "."
+  command = "echo 'No build needed - static site'"
+
+# Configuración de formularios
+[[plugins]]
+  package = "@netlify/plugin-form-submissions"
+
+# Notificaciones por email cuando alguien completa el formulario
+[build.environment]
+  # Netlify Forms enviará notificaciones al email configurado en el dashboard

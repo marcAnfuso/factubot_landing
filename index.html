@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FactuBot - Facturación Electrónica Inteligente para Monotributistas</title>
+    <meta name="description" content="Generá facturas electrónicas en ARCA con solo un mensaje de voz. FactuBot automatiza tu facturación para que vos te dediques a vender.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">FactuBot</span>
+            </div>
+            <nav class="nav">
+                <a href="#como-funciona">Cómo funciona</a>
+                <a href="#contacto" class="btn-primary-small">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content-new">
+                <p class="hero-pretext">¿Usás Facturador de ARCA todos los días?</p>
+                <h1 class="hero-title-center">
+                    Facturá en segundos,<br>
+                    <span class="gradient-text">solo con tu voz o con un simple mensaje</span>
+                </h1>
+
+                <div class="hero-mockup-center">
+                    <img src="images/hero-mockup.png" alt="Chat de Telegram mostrando FactuBot generando facturas automáticamente" style="width: 100%; max-width: 600px; margin: 0 auto; display: block; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+                </div>
+
+                <p class="hero-subtitle-center">
+                    FactuBot es el asistente inteligente que genera tus facturas electrónicas en ARCA automáticamente.
+                    Solo enviá un audio o mensaje, y listo. Sin formularios, sin complicaciones.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#contacto" class="btn-primary">
+                        <span>📱</span>
+                        Quiero más info
+                    </a>
+                    <a href="https://wa.me/5491123237214?text=Hola,%20te%20consulto%20por%20el%20bot%20de%20facturación..." target="_blank" class="btn-whatsapp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Hablemos por WhatsApp
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">⚡ 30 seg</span>
+                        <span class="stat-label">Promedio por factura</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">🎯 100%</span>
+                        <span class="stat-label">Compatible con ARCA</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">🗣️ Voz</span>
+                        <span class="stat-label">Sin escribir nada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z" fill="#f8f9fa"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Problema/Solución -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="solution-banner-compact">
+                <div class="solution-content">
+                    <h2>Facturar en ARCA nunca fue tan fácil</h2>
+                    <p>Olvidate de formularios, pasos manuales y facturas acumuladas. Con FactuBot, solo enviás un mensaje de voz diciendo <strong>"1500 MercadoPago"</strong> y la factura se genera automáticamente en ARCA. Así de simple.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple y rápido</span>
+                <h2>¿Cómo funciona?</h2>
+                <p>Solo 4 pasos para tener tu factura lista y registrada</p>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-prev" aria-label="Paso anterior">‹</button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <div class="carousel-slide step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Enviás un mensaje o audio</h3>
+                                <p>Por Telegram, le decís a FactuBot: <em>"Vendí 2300 con débito"</em> o <em>"1500 MercadoPago"</em>. Ni siquiera hace falta que digas qué vendiste.</p>
+                                <div class="step-example">
+                                    <span class="example-icon">🎤</span>
+                                    <span class="example-text">"Mil quinientos MercadoPago"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>FactuBot entiende y confirma</h3>
+                                <p>La IA procesa tu mensaje, extrae el monto y método de pago, y te muestra un resumen para que confirmes que está todo bien.</p>
+                                <div class="step-visual">
+                                    <div class="bot-message">
+                                        <strong>💰 $1,500.00</strong><br>
+                                        💳 MercadoPago<br>
+                                        <button class="mini-btn">✅ Sí, facturar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Factura generada en ARCA</h3>
+                                <p>FactuBot se conecta a ARCA, genera la factura electrónica oficial, y te devuelve el CAE y número de comprobante. Todo automático, todo legal.</p>
+                                <div class="step-result">
+                                    <span class="result-icon">✅</span>
+                                    <span class="result-text">Factura generada<br><small>CAE: 74589632541258</small></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-slide step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Registro automático en Google Sheets</h3>
+                                <p>Todas tus ventas se guardan automáticamente en Google Sheets, organizadas por mes. Tu contabilidad siempre al día, sin esfuerzo.</p>
+                                <div class="step-result">
+                                    <span class="result-icon">📊</span>
+                                    <span class="result-text">Registrado<br><small>Google Sheets actualizado</small></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-next" aria-label="Siguiente paso">›</button>
+            </div>
+
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-slide="0" aria-label="Ir al paso 1"></button>
+                <button class="carousel-dot" data-slide="1" aria-label="Ir al paso 2"></button>
+                <button class="carousel-dot" data-slide="2" aria-label="Ir al paso 3"></button>
+                <button class="carousel-dot" data-slide="3" aria-label="Ir al paso 4"></button>
+            </div>
+
+            <div class="process-infographic">
+                <img src="images/process-infographic.png" alt="Infografía del proceso de facturación con FactuBot: mensaje, IA, factura ARCA, Google Sheets" style="width: 100%; max-width: 1000px; margin: 3rem auto 0; display: block; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para automatizar tu facturación?</h2>
+                <p>Empezá a usar FactuBot hoy y recuperá tu tiempo</p>
+                <div class="cta-buttons">
+                    <a href="#contacto" class="btn-primary large">
+                        <span>🚀</span>
+                        Quiero usar FactuBot
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contacto</span>
+                <h2>Hablemos de tu negocio</h2>
+                <p>Contanos cómo trabajás y armamos la mejor solución para vos</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form name="contacto-factubot" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contacto-factubot">
+                        <p style="display: none;">
+                            <label>No llenes esto si eres humano: <input name="bot-field" /></label>
+                        </p>
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <input type="tel" name="telefono" placeholder="Tu teléfono">
+                        <select name="tipo_comercio" required>
+                            <option value="">¿Qué tipo de comercio tenés?</option>
+                            <option value="almacen">Almacén/Minimercado</option>
+                            <option value="perfumeria">Perfumería</option>
+                            <option value="bazar">Bazar/Librería</option>
+                            <option value="indumentaria">Indumentaria</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <textarea name="mensaje" placeholder="Contanos un poco más sobre tu negocio..." rows="4"></textarea>
+                        <button type="submit" class="btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🤖</span>
+                        <span class="logo-text">FactuBot</span>
+                    </div>
+                    <p>Facturación electrónica inteligente para monotributistas argentinos.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Producto</h4>
+                        <a href="#como-funciona">Cómo funciona</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Soporte</h4>
+                        <a href="#contacto">Contacto</a>
+                        <a href="https://wa.me/5491123237214?text=Hola,%20te%20consulto%20por%20el%20bot%20de%20facturación...">WhatsApp</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Términos y condiciones</a>
+                        <a href="#">Política de privacidad</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FactuBot. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

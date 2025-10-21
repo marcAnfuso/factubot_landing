@@ -1,0 +1,739 @@
+<!--
+  SNIPPETS EXTRAS PARA FACTUBOT LANDING PAGE
+
+  Estos son elementos adicionales que podés agregar a tu landing
+  cuando quieras mejorarla o agregar más funcionalidad.
+
+  Simplemente copiá y pegá donde necesites.
+-->
+
+<!-- ============================================
+     1. BOTÓN FLOTANTE DE WHATSAPP
+     ============================================ -->
+
+<!-- Agregar antes de </body> -->
+<a href="https://wa.me/5491234567890?text=Hola!%20Quiero%20info%20sobre%20FactuBot"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.737 5.479 2.028 7.781L.054 31.947l8.362-2.194A15.925 15.925 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm9.414 22.414c-.387.978-2.287 1.841-3.159 1.952-.763.096-1.729.134-2.791-.175-.65-.188-1.483-.441-2.544-.862-4.456-1.762-7.363-6.262-7.581-6.548-.212-.287-1.75-2.325-1.75-4.438s1.106-3.15 1.5-3.581c.394-.431.862-.537 1.15-.537.287 0 .575.004.825.012.263.012.619-.1.969.737.363.862 1.231 3.006 1.344 3.225.112.219.188.475.038.762-.15.288-.225.469-.45.725-.225.256-.469.575-.669.775-.225.225-.456.469-.194.919.263.45 1.169 1.925 2.506 3.119 1.725 1.537 3.169 2.019 3.619 2.244.45.225.712.188.975-.113.262-.3 1.125-1.312 1.425-1.762.3-.45.6-.375 1.012-.225.413.15 2.625 1.238 3.075 1.462.45.225.75.338.862.525.112.188.112 1.088-.275 2.138z" fill="white"/>
+    </svg>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+    }
+    100% {
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 80px;
+        width: 56px;
+        height: 56px;
+    }
+}
+</style>
+
+<!-- ============================================
+     2. BANNER DE COOKIES (GDPR Compliant)
+     ============================================ -->
+
+<!-- Agregar antes de </body> -->
+<div id="cookie-banner" class="cookie-banner hidden">
+    <div class="cookie-content">
+        <p>🍪 Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptás nuestro uso de cookies.</p>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()" class="btn-accept">Aceptar</button>
+            <button onclick="declineCookies()" class="btn-decline">Rechazar</button>
+            <a href="/privacy-policy.html" class="btn-more">Saber más</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    padding: 1.5rem;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+    z-index: 9998;
+    animation: slideUp 0.5s ease-out;
+}
+
+.cookie-banner.hidden {
+    display: none;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cookie-content p {
+    margin: 0;
+    flex: 1;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cookie-buttons button,
+.cookie-buttons a {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-accept {
+    background: #10b981;
+    color: white;
+}
+
+.btn-accept:hover {
+    background: #059669;
+}
+
+.btn-decline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-more {
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.btn-more:hover {
+    text-decoration: underline;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cookie-buttons button,
+    .cookie-buttons a {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+function acceptCookies() {
+    localStorage.setItem('cookies_accepted', 'true');
+    document.getElementById('cookie-banner').classList.add('hidden');
+    // Aquí podés activar Google Analytics, Facebook Pixel, etc.
+    console.log('Cookies aceptadas');
+}
+
+function declineCookies() {
+    localStorage.setItem('cookies_accepted', 'false');
+    document.getElementById('cookie-banner').classList.add('hidden');
+    console.log('Cookies rechazadas');
+}
+
+// Mostrar banner si no ha decidido
+window.addEventListener('DOMContentLoaded', () => {
+    const cookiesAccepted = localStorage.getItem('cookies_accepted');
+    if (cookiesAccepted === null) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+    }
+});
+</script>
+
+<!-- ============================================
+     3. POPUP DE EXIT INTENT
+     ============================================ -->
+
+<!-- Agregar antes de </body> -->
+<div id="exit-popup" class="exit-popup hidden">
+    <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+    <div class="exit-popup-content">
+        <button class="exit-popup-close" onclick="closeExitPopup()">×</button>
+        <h2>⏰ ¡Esperá!</h2>
+        <p>Antes de irte, queremos ofrecerte algo especial:</p>
+        <div class="exit-offer">
+            <h3>🎁 30 Días de Prueba Gratis</h3>
+            <p>Sin tarjeta de crédito. Sin compromiso.</p>
+            <ul class="exit-benefits">
+                <li>✅ Acceso completo a todas las funciones</li>
+                <li>✅ Soporte personalizado</li>
+                <li>✅ Cancelá cuando quieras</li>
+            </ul>
+            <a href="#contacto" class="exit-cta" onclick="closeExitPopup()">
+                Quiero probar gratis
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.exit-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-popup.hidden {
+    display: none;
+}
+
+.exit-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.exit-popup-content {
+    position: relative;
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: slideDown 0.5s ease-out;
+    text-align: center;
+}
+
+.exit-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.exit-popup-close:hover {
+    color: var(--dark);
+}
+
+.exit-popup-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.exit-popup-content > p {
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.exit-offer {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.exit-offer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.exit-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.exit-benefits li {
+    padding: 0.5rem 0;
+    color: var(--dark-light);
+}
+
+.exit-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.exit-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<script>
+let exitPopupShown = false;
+
+function closeExitPopup() {
+    document.getElementById('exit-popup').classList.add('hidden');
+}
+
+// Detectar exit intent (cuando el mouse sale por arriba)
+document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 0 && !exitPopupShown) {
+        exitPopupShown = true;
+        setTimeout(() => {
+            document.getElementById('exit-popup').classList.remove('hidden');
+        }, 500);
+    }
+});
+
+// También mostrar después de 30 segundos si no han interactuado
+setTimeout(() => {
+    if (!exitPopupShown) {
+        exitPopupShown = true;
+        document.getElementById('exit-popup').classList.remove('hidden');
+    }
+}, 30000);
+</script>
+
+<!-- ============================================
+     4. CONTADOR DE VISITANTES EN VIVO (Fake pero efectivo)
+     ============================================ -->
+
+<!-- Agregar en el hero o pricing section -->
+<div class="live-counter">
+    <span class="pulse-dot"></span>
+    <span id="visitor-count">127</span> personas viendo esta página ahora
+</div>
+
+<style>
+.live-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin: 1rem 0;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+    }
+}
+</style>
+
+<script>
+// Simular cambios aleatorios en el contador
+function updateVisitorCount() {
+    const counter = document.getElementById('visitor-count');
+    if (counter) {
+        const current = parseInt(counter.textContent);
+        const change = Math.random() > 0.5 ? 1 : -1;
+        const newCount = Math.max(50, Math.min(200, current + change));
+        counter.textContent = newCount;
+    }
+}
+
+setInterval(updateVisitorCount, 8000); // Actualizar cada 8 segundos
+</script>
+
+<!-- ============================================
+     5. TESTIMONIOS CON CAROUSEL/SLIDER
+     ============================================ -->
+
+<!-- Reemplazar la sección de testimonials existente -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Lo que dicen nuestros clientes</span>
+            <h2>Casos de éxito</h2>
+        </div>
+
+        <div class="testimonial-slider">
+            <button class="slider-btn prev" onclick="prevTestimonial()">‹</button>
+
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="quote">"Antes perdía 10 minutos con cada factura. Ahora solo mando un audio y sigo atendiendo. Un cambio total para mi negocio."</p>
+                        <div class="author">
+                            <img src="images/testimonial-1.jpg" alt="María López" onerror="this.style.display='none'">
+                            <div>
+                                <strong>María López</strong>
+                                <span>Perfumería en Villa Crespo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="quote">"Al principio no lo creía, pero funciona perfecto. Me ahorra horas todas las semanas y mis clientes están contentos."</p>
+                        <div class="author">
+                            <img src="images/testimonial-2.jpg" alt="Carlos Díaz" onerror="this.style.display='none'">
+                            <div>
+                                <strong>Carlos Díaz</strong>
+                                <span>Bazar y librería</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="quote">"Lo mejor es que no tengo que acordarme de facturar al final del día. Todo queda registrado al instante."</p>
+                        <div class="author">
+                            <img src="images/testimonial-3.jpg" alt="Lucía Romero" onerror="this.style.display='none'">
+                            <div>
+                                <strong>Lucía Romero</strong>
+                                <span>Dietética y productos naturales</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-btn next" onclick="nextTestimonial()">›</button>
+        </div>
+
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+</section>
+
+<style>
+.testimonial-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 60px;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease-out;
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+}
+
+.testimonial-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.stars {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.quote {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--dark-light);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author strong {
+    display: block;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.author span {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 2px solid var(--gray-light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.slider-btn.prev {
+    left: 0;
+}
+
+.slider-btn.next {
+    right: 0;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.slider-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-light);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dots .dot.active {
+    background: var(--primary);
+    width: 30px;
+    border-radius: 5px;
+}
+</style>
+
+<script>
+let currentTestimonial = 0;
+const testimonials = document.querySelectorAll('.testimonial-slide');
+const dots = document.getElementById('sliderDots');
+
+// Crear dots
+testimonials.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (index === 0 ? ' active' : '');
+    dot.onclick = () => goToTestimonial(index);
+    dots.appendChild(dot);
+});
+
+function updateTestimonials() {
+    testimonials.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentTestimonial);
+    });
+
+    document.querySelectorAll('.slider-dots .dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTestimonial);
+    });
+
+    const track = document.getElementById('testimonialTrack');
+    track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+}
+
+function nextTestimonial() {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    updateTestimonials();
+}
+
+function prevTestimonial() {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    updateTestimonials();
+}
+
+function goToTestimonial(index) {
+    currentTestimonial = index;
+    updateTestimonials();
+}
+
+// Auto-advance cada 5 segundos
+setInterval(nextTestimonial, 5000);
+</script>
+
+<!-- ============================================
+     6. BADGE DE "VISTO EN" (Press/Media)
+     ============================================ -->
+
+<!-- Agregar después del hero -->
+<div class="press-section">
+    <div class="container">
+        <p class="press-label">Confiado por comercios en todo el país</p>
+        <div class="press-logos">
+            <!-- Agregar logos de clientes o medios que te mencionen -->
+            <div class="press-logo">Logo 1</div>
+            <div class="press-logo">Logo 2</div>
+            <div class="press-logo">Logo 3</div>
+            <div class="press-logo">Logo 4</div>
+        </div>
+    </div>
+</div>
+
+<style>
+.press-section {
+    padding: 3rem 0;
+    background: white;
+    border-top: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.press-label {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.press-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.press-logo {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    filter: grayscale(100%);
+}
+
+.press-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+</style>
+
+<!-- ============================================
+     FIN DE SNIPPETS EXTRAS
+     ============================================ -->
