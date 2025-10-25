@@ -3,258 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FactuBot - Facturación Electrónica Inteligente para Monotributistas</title>
-    <meta name="description" content="Generá facturas electrónicas en ARCA con solo un mensaje de voz. FactuBot automatiza tu facturación para que vos te dediques a vender.">
+    <title>FactuBot</title>
+    <meta name="description" content="Decí '50340 efectivo' o '1234 mercadopago' y listo. Facturas ARCA automáticas por Telegram. Personalizado, voz o texto, Google Sheets incluido.">
+    <link rel="canonical" href="https://REPLACE_YOUR_DOMAIN.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://REPLACE_YOUR_DOMAIN.com">
+    <meta property="og:title" content="FactuBot - Facturá por Telegram en 10 segundos">
+    <meta property="og:description" content="Decí '50340 efectivo' o '1234 mercadopago' y listo. Facturas ARCA automáticas por Telegram.">
+    <meta property="og:image" content="https://REPLACE_YOUR_DOMAIN.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://REPLACE_YOUR_DOMAIN.com">
+    <meta property="twitter:title" content="FactuBot - Facturá por Telegram en 10 segundos">
+    <meta property="twitter:description" content="Decí '50340 efectivo' o '1234 mercadopago' y listo. Facturas ARCA automáticas.">
+    <meta property="twitter:image" content="https://REPLACE_YOUR_DOMAIN.com/og-image.jpg">
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code (REPLACE_PIXEL_ID) -->
+    <!--
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'REPLACE_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=REPLACE_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    -->
+
+    <!-- Google tag (gtag.js) GA4 (REPLACE_GA4_ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=REPLACE_GA4_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'REPLACE_GA4_ID');
+    </script>
+    -->
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;line-height:1.6;color:#1e293b;background:#fff}
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+header{background:#fff;padding:1rem 0;border-bottom:1px solid #f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:100;text-align:center}
+.logo{display:inline-flex;align-items:center;gap:0.5rem;font-size:1.5rem;font-weight:700;color:#6366f1}
+.hero{padding:0.75rem 0 2rem;text-align:center;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%)}
+h1{font-size:2.5rem;font-weight:800;color:#1e293b;margin:1rem 0;line-height:1.2}
+.gradient{background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{font-size:1.1rem;color:#64748b;max-width:700px;margin:1rem auto;line-height:1.7}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
+.btn{display:inline-block;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:1.1rem;transition:transform 0.2s,box-shadow 0.2s}
+.btn-whatsapp{background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(37,211,102,0.3)}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,0.4)}
+.btn-telegram{background:#0088cc;color:#fff;box-shadow:0 4px 14px rgba(0,136,204,0.3)}
+.btn-telegram:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,136,204,0.4)}
+.bullets{background:#fff;padding:3rem 0;max-width:800px;margin:0 auto}
+.bullets h2{text-align:center;font-size:2rem;margin-bottom:2rem}
+.bullets ul{list-style:none}
+.bullets li{padding:1rem;margin:0.5rem 0;border-left:4px solid #6366f1;background:#f8f9fa;border-radius:4px;font-size:1.05rem}
+.bullets li strong{color:#6366f1}
+.how{background:#f8f9fa;padding:3rem 0}
+.how h2{text-align:center;font-size:2rem;margin-bottom:2rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+.step{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.step-num{width:50px;height:50px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.step h3{font-size:1.2rem;margin-bottom:0.5rem}
+.step p{color:#64748b;font-size:0.95rem}
+.faq{background:#fff;padding:3rem 0;max-width:800px;margin:0 auto}
+.faq h2{text-align:center;font-size:2rem;margin-bottom:2rem}
+.faq-item{margin:1rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:1rem}
+.faq-item h3{font-size:1.1rem;margin-bottom:0.5rem;color:#1e293b}
+.faq-item p{color:#64748b;font-size:0.95rem}
+footer{background:#1e293b;color:#94a3b8;padding:2rem 0;text-align:center}
+footer a{color:#94a3b8;text-decoration:none}
+footer a:hover{color:#fff}
+.disclaimer{font-size:0.85rem;margin-top:1rem;color:#64748b}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e2e8f0;box-shadow:0 -4px 12px rgba(0,0,0,0.1);padding:0.75rem 1rem;z-index:200;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.sticky-bar .btn{padding:1rem 2rem;font-size:1.15rem;max-width:280px;display:flex;align-items:center;justify-content:center}
+@media(max-width:768px){
+h1{font-size:1.8rem}
+.subtitle{font-size:1rem}
+.bullets li{font-size:1.1rem;padding:1.2rem}
+.steps{grid-template-columns:1fr}
+.sticky-bar{padding:0.5rem}
+.sticky-bar .btn{padding:0.6rem 1rem;font-size:0.9rem}
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">🤖</span>
-                <span class="logo-text">FactuBot</span>
-            </div>
-            <nav class="nav">
-                <a href="#como-funciona">Cómo funciona</a>
-                <a href="#contacto" class="btn-primary-small">Contacto</a>
-            </nav>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <span>🤖</span>
+            <span>FactuBot</span>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content-new">
-                <p class="hero-pretext">¿Te cansaste de cargar facturas una por una en AFIP/ARCA?</p>
-                <h1 class="hero-title-center">
-                    Facturá en segundos,<br>
-                    <span class="gradient-text">solo con tu voz o con un simple mensaje</span>
-                </h1>
-
-                <div class="hero-mockup-center">
-                    <img src="images/hero-mockup.png" alt="Chat de Telegram mostrando FactuBot generando facturas automáticamente" style="width: 100%; max-width: 600px; margin: 0 auto; display: block; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
-                </div>
-
-                <p class="hero-subtitle-center">
-                    FactuBot es el asistente inteligente que genera tus facturas electrónicas en ARCA automáticamente.
-                    Solo enviá un audio o mensaje, y listo. Sin formularios, sin complicaciones.
-                </p>
-
-                <div class="hero-cta">
-                    <a href="#contacto" class="btn-primary">
-                        <span>📱</span>
-                        Quiero más info
-                    </a>
-                    <a href="https://wa.me/5491123237214?text=Hola,%20te%20consulto%20por%20el%20bot%20de%20facturación..." target="_blank" class="btn-whatsapp">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                        </svg>
-                        Hablemos por WhatsApp
-                    </a>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">⚡ 30 seg</span>
-                        <span class="stat-label">Promedio por factura</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">🎯 100%</span>
-                        <span class="stat-label">Compatible con ARCA</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">🗣️ Voz</span>
-                        <span class="stat-label">Sin escribir nada</span>
-                    </div>
-                </div>
-            </div>
+<section class="hero">
+    <div class="container">
+        <h1>Facturá por Telegram en <span class="gradient">10 segundos</span></h1>
+        <p style="font-size:1.15rem;color:#1e293b;margin:0.5rem auto 0.5rem;font-weight:700;max-width:550px">
+            No pierdas más tiempo con ARCA/AFIP
+        </p>
+        <p style="font-size:0.95rem;color:#64748b;margin:0 auto 1.5rem;max-width:450px">
+            Un mensaje y ya está todo hecho
+        </p>
+        <div style="max-width:320px;margin:1.5rem auto 0">
+            <img src="images/hero-mockup.png" alt="Mockup de chat de FactuBot en Telegram mostrando cómo facturar" width="1024" height="1536" style="width:100%;height:auto;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.15)" loading="eager">
         </div>
-        <div class="hero-wave">
-            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z" fill="#f8f9fa"></path>
-            </svg>
+    </div>
+</section>
+
+<section class="bullets">
+    <div class="container">
+        <h2>¿Por qué FactuBot?</h2>
+        <ul>
+            <li>✅ <strong>100% Personalizado:</strong> Facturaremos sólo lo que vos nos digas. Respuestas del bot adaptadas a tu uso diario.</li>
+            <li>✅ <strong>Voz o texto:</strong> Hablá o escribí, vos elegís. Texto = más rápido y preciso. Voz = más comodidad.</li>
+            <li>✅ <strong>Te ayudamos con ARCA:</strong> Podemos enviarte una guía o configurarlo nosotros, para tu confianza y seguridad.</li>
+            <li>✅ <strong>Google Sheets automático:</strong> Todas tus ventas organizadas por mes, sin esfuerzo.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Solo funciona con Telegram?</h3>
+            <p>Por ahora sí, solo Telegram. Es gratis, rápido y seguro. WhatsApp Business API es mucho más costoso.</p>
         </div>
-    </section>
-
-    <!-- Problema/Solución -->
-    <section class="problem-solution">
-        <div class="container">
-            <div class="solution-banner-compact">
-                <div class="solution-content">
-                    <h2>Facturar en ARCA nunca fue tan fácil</h2>
-                    <p>Olvidate de formularios, pasos manuales y facturas acumuladas. Con FactuBot, solo enviás un mensaje de voz diciendo <strong>"1500 MercadoPago"</strong> y la factura se genera automáticamente en ARCA. Así de simple.</p>
-                </div>
-            </div>
+        <div class="faq-item">
+            <h3>¿Cómo es el precio?</h3>
+            <p>Precio consciente y accesible para negocios con menos de 50 ventas/día. Contactanos para un presupuesto personalizado.</p>
         </div>
-    </section>
-
-    <!-- Cómo funciona -->
-    <section class="how-it-works" id="como-funciona">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Simple y rápido</span>
-                <h2>¿Cómo funciona?</h2>
-                <p>Solo 4 pasos para tener tu factura lista y registrada</p>
-            </div>
-            <div class="carousel-container">
-                <button class="carousel-btn carousel-prev" aria-label="Paso anterior">‹</button>
-                <div class="carousel-wrapper">
-                    <div class="carousel-track">
-                        <div class="carousel-slide step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h3>Enviás un mensaje o audio</h3>
-                                <p>Por Telegram, le decís a FactuBot: <em>"Vendí 2300 con débito"</em> o <em>"1500 MercadoPago"</em>. Ni siquiera hace falta que digas qué vendiste.</p>
-                                <div class="step-example">
-                                    <span class="example-icon">🎤</span>
-                                    <span class="example-text">"Mil quinientos MercadoPago"</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h3>FactuBot entiende y confirma</h3>
-                                <p>La IA procesa tu mensaje, extrae el monto y método de pago, y te muestra un resumen para que confirmes que está todo bien.</p>
-                                <div class="step-visual">
-                                    <div class="bot-message">
-                                        <strong>💰 $1,500.00</strong><br>
-                                        💳 MercadoPago<br>
-                                        <button class="mini-btn">✅ Sí, facturar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h3>Factura generada en ARCA</h3>
-                                <p>FactuBot se conecta a ARCA, genera la factura electrónica oficial, y te devuelve el CAE y número de comprobante. Todo automático, todo legal.</p>
-                                <div class="step-result">
-                                    <span class="result-icon">✅</span>
-                                    <span class="result-text">Factura generada<br><small>CAE: 74589632541258</small></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h3>Registro automático en Google Sheets</h3>
-                                <p>Todas tus ventas se guardan automáticamente en Google Sheets, organizadas por mes. Tu contabilidad siempre al día, sin esfuerzo.</p>
-                                <div class="step-result">
-                                    <span class="result-icon">📊</span>
-                                    <span class="result-text">Registrado<br><small>Google Sheets actualizado</small></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-btn carousel-next" aria-label="Siguiente paso">›</button>
-            </div>
-
-            <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0" aria-label="Ir al paso 1"></button>
-                <button class="carousel-dot" data-slide="1" aria-label="Ir al paso 2"></button>
-                <button class="carousel-dot" data-slide="2" aria-label="Ir al paso 3"></button>
-                <button class="carousel-dot" data-slide="3" aria-label="Ir al paso 4"></button>
-            </div>
-
-            <div class="process-infographic">
-                <img src="images/process-infographic.png" alt="Infografía del proceso de facturación con FactuBot: mensaje, IA, factura ARCA, Google Sheets" style="width: 100%; max-width: 1000px; margin: 3rem auto 0; display: block; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-            </div>
+        <div class="faq-item">
+            <h3>¿Y si el bot no me entendió bien?</h3>
+            <p>El bot <strong>SIEMPRE</strong> te pide confirmación antes de generar la factura. Te muestra el monto, método de pago y tipo de comprobante, y solo tenés que tocar un botón para confirmar o cancelar. Cero riesgo de facturas erróneas.</p>
         </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="final-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>¿Listo para automatizar tu facturación?</h2>
-                <p>Empezá a usar FactuBot hoy y recuperá tu tiempo</p>
-                <div class="cta-buttons">
-                    <a href="#contacto" class="btn-primary large">
-                        <span>🚀</span>
-                        Quiero usar FactuBot
-                    </a>
-                </div>
-            </div>
+        <div class="faq-item">
+            <h3>¿Obtengo reportes de mis ventas?</h3>
+            <p>Sí. Al final de cada jornada el bot te envía un reporte automático con: total de ventas, cantidad facturada, y desglose por métodos de pago (efectivo, transferencia, Mercado Pago, etc.). Todo sin que tengas que pedirlo.</p>
         </div>
-    </section>
-
-    <!-- Contacto -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Contacto</span>
-                <h2>Hablemos de tu negocio</h2>
-                <p>Contanos cómo trabajás y armamos la mejor solución para vos</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form name="contacto-factubot" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="contacto-factubot">
-                        <p style="display: none;">
-                            <label>No llenes esto si eres humano: <input name="bot-field" /></label>
-                        </p>
-                        <input type="text" name="nombre" placeholder="Tu nombre" required>
-                        <input type="email" name="email" placeholder="Tu email" required>
-                        <input type="tel" name="telefono" placeholder="Tu teléfono">
-                        <select name="tipo_comercio" required>
-                            <option value="">¿Qué tipo de comercio tenés?</option>
-                            <option value="almacen">Almacén/Minimercado</option>
-                            <option value="perfumeria">Perfumería</option>
-                            <option value="bazar">Bazar/Librería</option>
-                            <option value="indumentaria">Indumentaria</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                        <textarea name="mensaje" placeholder="Contanos un poco más sobre tu negocio..." rows="4"></textarea>
-                        <button type="submit" class="btn-primary">Enviar mensaje</button>
-                    </form>
-                </div>
-            </div>
+        <div class="faq-item">
+            <h3>¿Qué se guarda en tu hoja de Google Sheets?</h3>
+            <p>Fecha, monto, método de pago, CAE y número de comprobante. Todo organizado por mes para tu contabilidad.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-icon">🤖</span>
-                        <span class="logo-text">FactuBot</span>
-                    </div>
-                    <p>Facturación electrónica inteligente para monotributistas argentinos.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Producto</h4>
-                        <a href="#como-funciona">Cómo funciona</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Soporte</h4>
-                        <a href="#contacto">Contacto</a>
-                        <a href="https://wa.me/5491123237214?text=Hola,%20te%20consulto%20por%20el%20bot%20de%20facturación...">WhatsApp</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Legal</h4>
-                        <a href="#">Términos y condiciones</a>
-                        <a href="#">Política de privacidad</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 FactuBot. Todos los derechos reservados.</p>
-            </div>
+        <div class="faq-item">
+            <h3>¿Es seguro? ¿Cómo se conecta a ARCA?</h3>
+            <p>Usamos el <a href="https://www.afip.gob.ar/ws/" target="_blank" rel="noopener" style="color:#6366f1;text-decoration:underline">Web Service oficial de AFIP/ARCA</a> con tus propias credenciales. Todo encriptado, sin intermediarios. Integramos el WS ARCA - no somos AFIP/ARCA.</p>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+<footer>
+    <div class="container">
+        <p>&copy; 2025 FactuBot. Todos los derechos reservados.</p>
+        <p class="disclaimer">Integramos el Web Service de ARCA. No somos AFIP ni ARCA. Servicio de automatización independiente.</p>
+    </div>
+</footer>
+
+<!-- Sticky CTA Bar -->
+<div class="sticky-bar">
+    <a href="https://wa.me/5491135701243?text=Hola,%20quiero%20saber%20m%C3%A1s%20sobre%20FactuBot" class="btn btn-whatsapp" target="_blank" rel="noopener" onclick="trackConversion('sticky_whatsapp')">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="margin-right:8px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribime y te cuento más
+    </a>
+</div>
+
+<script>
+// Tracking helper (replace with actual Pixel/GA4 events)
+function trackConversion(action) {
+    // Meta Pixel event
+    // if (typeof fbq !== 'undefined') {
+    //     fbq('track', 'Lead', {content_name: action});
+    // }
+
+    // GA4 event
+    // if (typeof gtag !== 'undefined') {
+    //     gtag('event', 'generate_lead', {
+    //         event_category: 'engagement',
+    //         event_label: action
+    //     });
+    // }
+
+    console.log('Conversion tracked:', action);
+}
+</script>
+
 </body>
 </html>
